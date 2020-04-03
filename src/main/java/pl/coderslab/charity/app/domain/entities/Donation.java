@@ -20,7 +20,7 @@ public class Donation {
 
     private Integer quantity;
 
-    @OneToMany
+    @ManyToMany
     private List <Category> categories;
     @ManyToOne
     private Institution institution;

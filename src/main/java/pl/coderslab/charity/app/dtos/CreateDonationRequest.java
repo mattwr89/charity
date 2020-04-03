@@ -1,4 +1,4 @@
-package pl.coderslab.charity.app.controllers.dtos;
+package pl.coderslab.charity.app.dtos;
 
 import lombok.Data;
 

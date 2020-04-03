@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "   category")
+@Table (name = "category")
 @Getter @Setter @ToString @EqualsAndHashCode (of = "id")
 public class Category {
     @Id

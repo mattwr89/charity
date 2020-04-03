@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.app.controllers.dtos.CreateDonationRequest;
+import pl.coderslab.charity.app.dtos.CategoryDTO;
+import pl.coderslab.charity.app.dtos.CreateDonationRequest;
+import pl.coderslab.charity.app.dtos.InstituionDTO;
 import pl.coderslab.charity.app.services.DonationService;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/add") @Slf4j
+@RequestMapping("/donation/add") @Slf4j
 public class DonationController {
 
     private final DonationService donationService;
@@ -22,6 +26,17 @@ public class DonationController {
     public DonationController(DonationService donationService) {
 
         this.donationService = donationService;
+    }
+
+    @ModelAttribute("categories")
+    public List<CategoryDTO> categories(){
+        return donationService.availableCategories();
+
+    }
+
+    @ModelAttribute("institutions")
+    public List<InstituionDTO> institutions(){
+        return donationService.availableInstitutions();
     }
 
     @GetMapping
