@@ -9,6 +9,7 @@ import pl.coderslab.charity.app.domain.entities.Institution;
 import pl.coderslab.charity.app.domain.repositories.DonationRepository;
 import pl.coderslab.charity.app.domain.repositories.InstitutionRepository;
 
+import java.security.Principal;
 import java.util.List;
 
 
@@ -25,8 +26,11 @@ public class HomeController {
     }
 
 
+
     @GetMapping
-    public String homeAction(Model model){
+    public String homeAction(Model model, Principal principal){
+        String username = principal.getName();
+        model.addAttribute("username",username);
         List<Institution> institutions = institutionRepository.findAll();
         model.addAttribute("institution" , institutions);
         Integer donations = donationRepository.countAllById();
