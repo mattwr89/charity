@@ -8,12 +8,8 @@ public class LoginController {
 
     @GetMapping("/login")
     public String prepareLoginPage(){
-        return "login/formLogin";
+        return "login/form";
     }
 
-    @GetMapping("/logout")
-    public String prepareLogoutPage(){
-        return "login/formLogin";
-    }
 }
 
