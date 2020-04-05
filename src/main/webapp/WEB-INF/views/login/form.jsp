@@ -16,19 +16,10 @@
 
     <form method="post" action="/login">
 
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
-        </div>
-        <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
-            <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
-        </div>
-
-        <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border">Załóż konto</a>
-            <button class="btn" type="submit">Zaloguj się</button>
-            <security:csrfInput/>
-        </div>
+        <p class="has-text-centered">Nazwa użytkownika: <input class="input"  type="text" name="username"/></p>
+        <p class="has-text-centered">Hasło: <input class="input"  type="password" name="password"/></p>
+        <p><button class="button" type="submit">Zaloguj</button></p>
+        <security:csrfInput/>
 
     </form>
 </section>

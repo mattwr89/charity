@@ -29,8 +29,8 @@
         <div class="form-group form-group--buttons">
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
-        </div> <security:csrfInput/>
-
+        </div>
+                    <security:csrfInput/>
     </form:form>
 </section>
 <script src="<c:url value="/resources/js/app.js"/>"></script>
