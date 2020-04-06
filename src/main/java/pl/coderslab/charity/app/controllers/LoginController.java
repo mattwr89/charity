@@ -11,5 +11,11 @@ public class LoginController {
         return "login/form";
     }
 
+    @GetMapping("/logout")
+    public String prepareLogoutPage(){
+        return "login/form";
+    }
+
+
 }
 

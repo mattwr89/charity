@@ -18,17 +18,13 @@
         <div class="form--steps-container">
             <h3>Ważne!</h3>
             <p data-step="1" class="active">
-                Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
-                wiedzieć komu najlepiej je przekazać.
-                <form:checkboxes path="categories"
-                                 items="${categories}"/>
             </p>
             <p data-step="2">
                 Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
                 wiedzieć komu najlepiej je przekazać.
             </p>
             <p data-step="3">
-                Wybierz jedną, do
+                Wybierz jedną, docategory
                 której trafi Twoja przesyłka.
             </p>
             <p data-step="4">Podaj adres oraz termin odbioru rzeczy.</p>
@@ -38,7 +34,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form  modelAttribute="donationData" method="post">
+        <
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -48,7 +44,7 @@
                         <input
                                 type="checkbox"
                                 name="category"
-                                value="${id}"
+                                value="clothes-to-use"
                         />
                         <span class="checkbox"></span>
                         <span class="description"
