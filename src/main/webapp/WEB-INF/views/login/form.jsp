@@ -16,7 +16,7 @@
 
     <form method="post" action="/login">
 
-        <p class="has-text-centered">Nazwa użytkownika: <input class="input"  type="text" name="username"/></p>
+        <p class="has-text-centered">Nazwa użytkownika: <input class="input" type="text" name="username"/></p>
         <p class="has-text-centered">Hasło: <input class="input"  type="password" name="password"/></p>
         <p><button class="button" type="submit">Zaloguj</button></p>
         <security:csrfInput/>

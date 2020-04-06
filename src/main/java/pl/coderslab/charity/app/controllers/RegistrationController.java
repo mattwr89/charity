@@ -30,7 +30,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistrationPage(@Valid @ModelAttribute ("data")RegistrationDataDTO data, BindingResult results) {
+    public String processRegistrationPage(@Valid @ModelAttribute("data") RegistrationDataDTO data, BindingResult results) {
         if (results.hasErrors()){
             return "register/form";
         }
