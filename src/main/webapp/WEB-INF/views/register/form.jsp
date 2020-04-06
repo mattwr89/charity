@@ -15,15 +15,15 @@
 <body>
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form:form modelAttribute="data"  method="post" action="/register">
+    <form:form modelAttribute="data" method="post" action="/register">
         <div class="form-group">
-            <form:input path="username" type="text" name="username" placeholder="Nick" />
+            <form:input path="username" type="text" placeholder="Nick" />
         </div>
         <div class="form-group">
-            <form:input path="email" type="email" name="email" placeholder="Email" />
+            <form:input path="email" type="email" placeholder="Email" />
         </div>
         <div class="form-group">
-            <form:input path="password" type="password" name="password" placeholder="Hasło" />
+            <form:input path="password" type="password" placeholder="Hasło" />
 
 
         <div class="form-group form-group--buttons">

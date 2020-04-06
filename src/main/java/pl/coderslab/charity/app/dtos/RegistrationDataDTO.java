@@ -5,18 +5,17 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 
 @Data @ToString (exclude = "password")
 public class RegistrationDataDTO {
 
-
-    @Column( nullable = false, unique = true)
+    @NotBlank
     private String username;
     @Email
-    @Column (nullable = false, unique = true)
     private String email;
-    @Column (nullable = false)
+    @NotBlank
     private String password;
 
 
