@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/resources/css/style.css" />
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp" %>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -47,9 +46,8 @@
                     <label>
                         <input
                                 type="checkbox"
-                                name="categoryId"
+                                name="category"
                                 value="${category.id}"
-
                                 <c:forEach items="${donationData.categoriesId}" var="id">
                                     <c:if test="${id eq category.id}">
                                         checked="checked"
@@ -120,16 +118,16 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address" /> </label>
+                            <label> Ulica <form:input path="street" type="text" name="address" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <form:input path="city" type="text" name="city" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode" />
                             </label>
                         </div>
 
@@ -143,11 +141,11 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data" /> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" name="data" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <form:input path="pickUpTime" type="time" name="time" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -174,15 +172,15 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                <span class="summary--text" id="summary-text-quantity"
+                                ></span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                <span class="summary--text" id="summary-text-institution"
+                                >Dla fundacji</span
                                 >
                             </li>
                         </ul>
@@ -191,19 +189,19 @@
                     <div class="form-section form-section--columns">
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
-                            <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                            <ul id="addres-list">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
-                            <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
+                            <ul id="dispatch-list">
+                                <li></li>
+                                <li></li>
                                 <li>Brak uwag</li>
                             </ul>
                         </div>

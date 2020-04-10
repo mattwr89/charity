@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -17,14 +18,21 @@ public class Donation {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(nullable = false)
     private Integer quantity;
+    @Column(nullable = false)
     private String street;
+    @Column(nullable = false)
     private String city;
+    @Column(nullable = false)
     private String zipCode;
+    @Column(nullable = false)
     private LocalDate pickUpDate;
-    private LocalDateTime pickUpTime;
+    @Column(nullable = false)
+    private LocalTime pickUpTime;
     private String pickUpComment;
+    @Column(nullable = false)
+    private String phoneNumber;
 
     @ManyToMany
     private List <Category> categories;
