@@ -37,7 +37,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form modelAttribute="donationData" method="post">
+        <form:form modelAttribute="donationData" method="post" id="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -73,7 +73,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" name="bags" step="1" min="1" />
+                        <form:input path="quantity" id="bags-quantity" type="number" name="bags" step="1" min="1" />
                     </label>
                 </div>
 
@@ -91,7 +91,10 @@
                 <c:forEach items="${institutions}" var="institution">
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input type="radio" name="organization" value="old" />
+                        <input type="radio"
+                               name="institution"
+                               value="${institution.id}"
+                               data-institution = "${institution.name}"/>
                         <span class="checkbox radio"></span>
                         <span class="description">
                   <div class="title">${institution.name}</div>
@@ -166,7 +169,7 @@
             <div data-step="5">
                 <h3>Podsumowanie Twojej darowizny</h3>
 
-                <div class="summary">
+                <div class="summary" id="donation-summary">
                     <div class="form-section">
                         <h4>Oddajesz:</h4>
                         <ul>

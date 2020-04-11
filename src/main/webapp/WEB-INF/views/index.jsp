@@ -18,8 +18,13 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
+            <c:if test="${empty sum}">
+            <em>0</em>
+            </c:if>
 
-            <em>${sum}</em>
+            <c:if test="${not empty sum}">
+                <em>${sum}</em>
+            </c:if>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -28,7 +33,13 @@
 
         <div class="stats--item">
 
+            <c:if test="${empty donations}">
+                <em>0</em>
+            </c:if>
+
+            <c:if test="${not empty donations}">
                 <em>${donations}</em>
+            </c:if>
 
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
