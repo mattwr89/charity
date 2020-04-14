@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+  // GLOBAL VARIABLES
+  let serverUrl = "http://localhost:8080/";
+
+
   /**
    * Form Select
    */
@@ -163,10 +167,49 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
+      let preSubmit = document.querySelector("#confirm-step-4");
+
+      preSubmit.addEventListener('click', function () {
+        let checkedValue = null;
+        let categories = null;
+        let inputElements = document.querySelectorAll('#categories');
+        for (let i = 0; inputElements.length; ++i) {
+          if (inputElements[i].checked) {
+            checkedValue = inputElements[i].nextElementSibling.nextElementSibling;
+            categories = checkedValue.innerText;
+            break;
+          }
+        }
+        let bag = document.getElementById("bags-quantity").value;
+        let institution = $('input[name=institution]:checked', '#add-donation-form').data('institution');
+        let address = document.getElementById("address").value;
+        let city = document.getElementById("city").value;
+        let postcode = document.getElementById("postcode").value;
+        let phone = document.getElementById("phone").value;
+        let pickUpDate = document.getElementById("pickUpDate").value;
+        let pickUpTime = document.getElementById("pickUpTime").value;
+        let pickUpComment = document.getElementById("pickUpComment").value;
+
+        let addressList = document.getElementById("address-list");
+        addressList.getElementsByTagName("LI")[0].innerHTML = address;
+        addressList.getElementsByTagName("LI")[1].innerHTML = city;
+        addressList.getElementsByTagName("LI")[2].innerHTML = postcode;
+        addressList.getElementsByTagName("LI")[3].innerHTML = phone;
+
+        let dateList = document.getElementById("dispatch-list");
+        dateList.getElementsByTagName("LI")[0].innerHTML = pickUpDate;
+        dateList.getElementsByTagName("LI")[1].innerHTML = pickUpTime;
+        dateList.getElementsByTagName("LI")[2].innerHTML = pickUpComment;
+
+        document.getElementById("summary-text-quantity")
+            .innerHTML = bag + ' worków ' + categories;
+
+        $('#summary-text-institution').text('Dla fundacji ' + institution);
+      });
     }
 
   }
+
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);

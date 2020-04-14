@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/style.css" />
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp" %>
+
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -38,33 +38,33 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form modelAttribute="donationData" method="post">
+        <form:form action="/donation/add/add" method="post" id="add-donation-form" modelAttribute="donationData">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
-                <c:forEach items="${categories}" var="category">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="categoryId"
-                                value="${category.id}"
 
-                                <c:forEach items="${donationData.categoriesId}" var="id">
-                                    <c:if test="${id eq category.id}">
-                                        checked="checked"
-                                    </c:if>
-                                </c:forEach>
-                        />
-                        <span class="checkbox"></span>
-                        <span class="description">${category.name}</span>
-                    </label>
-                </div>
+                <c:forEach items="${categories}" var="category">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+
+                            <input items="${category}"
+                                   type="checkbox"
+                                   name="categories"
+                                   value="${category.id}"
+                                   id="categories"
+                            />
+
+                            <span class="checkbox"></span>
+                            <span class="description"
+                            >${category.name}</span
+                            >
+                        </label>
+
+                    </div>
                 </c:forEach>
 
-
                 <div class="form-group form-group--buttons">
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="confirm-step-1">Dalej</button>
                 </div>
             </div>
 
@@ -75,13 +75,14 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" name="bags" step="1" min="1" />
-                    </label>
+                        <input type="number" name="quantity" step="1" min="1" id="bags-quantity" value="${donationData.quantity}" />
+                    </label></br>
+                    <form:errors path="quantity" cssClass="error-small"/>
                 </div>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="confirm-step-2">Dalej</button>
                 </div>
             </div>
 
@@ -90,25 +91,33 @@
             <!-- STEP 4 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
+
                 <c:forEach items="${institutions}" var="institution">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+
+                            <input type="radio"
+                                   name="institution"
+                                   value="${institution.id}"
+                                   data-institution = "${institution.name}"
+                                   id="institution"
+                            />
+                            <span class="checkbox radio"></span>
+                            <span class="description">
                   <div class="title">${institution.name}</div>
                   <div class="subtitle">
-                    Cel i misja: ${institution.description}
+                          ${institution.description}
                   </div>
                 </span>
-                    </label>
-                </div>
-                </c:forEach>
+                        </label>
 
+
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="confirm-step-3">Dalej</button>
                 </div>
             </div>
 
@@ -120,47 +129,59 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address" /> </label>
+                            <label> Ulica <input type="text" name="street" id="address" value="${donationData.street}"/>
+                            </label>
+                            <form:errors path="street" cssClass="error-small"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <input type="text" name="city" id="city" value="${donationData.city}"/>
+                            </label><
+                            <form:errors path="city" cssClass="error-small"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <input type="text" name="zipCode" id="postcode" value="${donationData.zipCode}"/>
                             </label>
+                            <form:errors path="zipCode" cssClass="error-small"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" />
+                                Numer telefonu <input type="text" name="phoneNumber" id="phone" value="${donationData.phoneNumber}"/>
                             </label>
+                            <form:errors path="phoneNumber" cssClass="error-small"/>
                         </div>
                     </div>
 
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data" /> </label>
+                            <label> Data <input pattern="yyyy-MM-dd" type="date" name="pickUpDate" id="pickUpDate" value="${donationData.pickUpDate}"/>
+                            </label>
+                            <form:errors path="pickUpDate" cssClass="error-small"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <input type="time" name="pickUpTime" id="pickUpTime" value="${donationData.pickUpTime}"/>
+                            </label>
+                            <form:errors path="pickUpTime" cssClass="error-small"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <textarea name="pickUpComment" rows="5" id="pickUpComment">
+                    </textarea>
+                                <form:errors path="pickUpComment" cssClass="error-small"/>
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="confirm-step-4">Dalej</button>
                 </div>
             </div>
 
@@ -168,21 +189,21 @@
             <div data-step="5">
                 <h3>Podsumowanie Twojej darowizny</h3>
 
-                <div class="summary">
+                <div class="summary" id="donation-summary">
                     <div class="form-section">
                         <h4>Oddajesz:</h4>
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                <span class="summary--text" id="summary-text-quantity"
+                                ></span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                <span class="summary--text" id="summary-text-institution"
+                                >Dla fundacji</span
                                 >
                             </li>
                         </ul>
@@ -191,19 +212,19 @@
                     <div class="form-section form-section--columns">
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
-                            <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                            <ul id="address-list">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
-                            <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
+                            <ul id="dispatch-list">
+                                <li></li>
+                                <li></li>
                                 <li>Brak uwag</li>
                             </ul>
                         </div>
@@ -220,7 +241,17 @@
 </section>
 
 <%@include file="/WEB-INF/views/footer.jsp" %>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 <script src="/resources/js/app.js"></script>
+
 
 </body>
 </html>

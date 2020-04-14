@@ -36,9 +36,13 @@ public class DefaultDonationService implements DonationService {
     public void donate(CreateDonationRequest donationData) {
         Donation donation = new Donation();
         donation.setCity(donationData.getCity());
-        donation.setStreet(donationData.getStreet());
-        donation.setQuantity(donationData.getQuantity());
+        donation.setPhoneNumber(donationData.getPhoneNumber());
+        donation.setPickUpComment(donationData.getPickUpComment());
         donation.setPickUpDate(donationData.getPickUpDate());
+        donation.setPickUpTime(donationData.getPickUpTime());
+        donation.setQuantity(donationData.getQuantity());
+        donation.setStreet(donationData.getStreet());
+        donation.setZipCode(donationData.getZipCode());
 
      Institution institution = institutionRepository.getOne(donationData.getInstitutionId());
         List<Category> categories = categoryRepository.findAllById(donationData.getCategoriesId());
