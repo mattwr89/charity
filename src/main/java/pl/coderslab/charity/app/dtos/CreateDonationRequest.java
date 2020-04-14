@@ -10,8 +10,7 @@ import java.util.List;
 
 @Data
 public class CreateDonationRequest {
-
-
+    
     private Integer quantity;
     private List<Long> categoriesId;
     private Long institutionId;
