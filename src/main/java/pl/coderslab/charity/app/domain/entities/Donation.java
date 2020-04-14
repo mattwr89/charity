@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ public class Donation {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private Integer quantity;
     @Column(nullable = false)
@@ -26,6 +28,7 @@ public class Donation {
     private String city;
     @Column(nullable = false)
     private String zipCode;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
     private LocalDate pickUpDate;
     @Column(nullable = false)

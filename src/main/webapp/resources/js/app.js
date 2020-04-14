@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
             break;
           }
         }
-        let bags = document.getElementById("bags-quantity").value;
+        let bag = document.getElementById("bags-quantity").value;
         let institution = $('input[name=institution]:checked', '#add-donation-form').data('institution');
         let address = document.getElementById("address").value;
         let city = document.getElementById("city").value;
@@ -202,14 +202,14 @@ document.addEventListener("DOMContentLoaded", function() {
         dateList.getElementsByTagName("LI")[2].innerHTML = pickUpComment;
 
         document.getElementById("summary-text-quantity")
-            .innerHTML = bags + ' worków ' + categories;
+            .innerHTML = bag + ' worków ' + categories;
 
         $('#summary-text-institution').text('Dla fundacji ' + institution);
       });
     }
 
-
   }
+
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
