@@ -4,7 +4,8 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -176,7 +177,7 @@
                                 Uwagi dla kuriera
                                 <textarea name="pickUpComment" rows="5" id="pickUpComment">
                     </textarea>
-                          
+
                             </label>
                         </div>
                     </div>
