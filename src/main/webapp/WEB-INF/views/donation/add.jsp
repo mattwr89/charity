@@ -133,27 +133,27 @@
                         <div class="form-group form-group--inline">
                             <label> Ulica <input type="text" name="street" id="address" value="${donationData.street}"/>
                             </label>
-                            <form:errors path="street" cssClass="error-small"/>
+
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Miasto <input type="text" name="city" id="city" value="${donationData.city}"/>
                             </label><
-                            <form:errors path="city" cssClass="error-small"/>
+
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <input type="text" name="zipCode" id="postcode" value="${donationData.zipCode}"/>
                             </label>
-                            <form:errors path="zipCode" cssClass="error-small"/>
+
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Numer telefonu <input type="text" name="phoneNumber" id="phone" value="${donationData.phoneNumber}"/>
                             </label>
-                            <form:errors path="phoneNumber" cssClass="error-small"/>
+
                         </div>
                     </div>
 
@@ -162,13 +162,13 @@
                         <div class="form-group form-group--inline">
                             <label> Data <input pattern="yyyy-MM-dd" type="date" name="pickUpDate" id="pickUpDate" value="${donationData.pickUpDate}"/>
                             </label>
-                            <form:errors path="pickUpDate" cssClass="error-small"/>
+
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Godzina <input type="time" name="pickUpTime" id="pickUpTime" value="${donationData.pickUpTime}"/>
                             </label>
-                            <form:errors path="pickUpTime" cssClass="error-small"/>
+
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -176,7 +176,7 @@
                                 Uwagi dla kuriera
                                 <textarea name="pickUpComment" rows="5" id="pickUpComment">
                     </textarea>
-                                <form:errors path="pickUpComment" cssClass="error-small"/>
+                          
                             </label>
                         </div>
                     </div>
