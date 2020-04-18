@@ -15,9 +15,12 @@
     <name>charity</name>
     <description>Charity project, created with love in CodersLab</description>
 
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <packaging>war</packaging>
 
 
     <dependencies>
@@ -26,6 +29,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -69,7 +73,7 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.0.17.Final</version>
+            <version>6.1.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>

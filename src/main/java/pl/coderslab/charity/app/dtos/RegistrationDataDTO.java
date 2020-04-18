@@ -19,7 +19,6 @@ public class RegistrationDataDTO {
     @Size(min = 4,max = 15)
     private String username;
     @NotBlank
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,15}$")
     private String password;
     @NotBlank
     @Email
