@@ -18,7 +18,6 @@ public class Donation {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false)
     private Integer quantity;
     @Column(nullable = false)
