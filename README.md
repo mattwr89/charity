@@ -1,2 +1,17 @@
-# charity
-The goal of the project is to create a place where everyone can give unnecessary items to trusted institutions.
+# Ogarnij Zwierzaka
+## Animal Project
+
+
+
+### Used technologies 
+* Java EE
+* Spring
+* Hibernate
+* Apache Tomcat
+* MySQL
+* JPA
+* JSP
+* HTML5
+* CSS3
+* JavaScript
+
