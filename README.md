@@ -1,10 +1,14 @@
 # Twoja szafa dla wszystkich
 ## Charity Project
-Project that helps take care of seniors animals during COVID-19 lockdown
+Create a place where everyone can give unnecessary items to trusted institutions. 
 
 ![welcome](src/main/webapp/resources/readmeIMG/welcome.png)
 ### Used technologies 
-* Java EE * Spring * Hibernate * Apache Tomcat * MySQL
+* Java EE
+* Spring 
+* Hibernate 
+* Apache Tomcat 
+* MySQL
 
 
 ## Database structure
