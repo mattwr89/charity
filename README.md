@@ -13,4 +13,7 @@ Create a place where everyone can give unnecessary items to trusted institutions
 
 ## Database structure
   ![db](src/main/webapp/resources/readmeIMG/db.png)`
-
+  
+  ## Donation form steps
+  ![add](src/main/webapp/resources/readmeIMG/add.png)`
+  
